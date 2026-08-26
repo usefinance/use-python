@@ -1,0 +1,55 @@
+[project]
+name = "use-python"
+version = "1.0.0"
+description = "Shared Python environment for Financial Data Analytics and Empirical Economics"
+requires-python = ">=3.12"
+dependencies = [
+    # Environment
+    "jupyterlab",
+    "ipywidgets",
+
+    # Data
+    "pandas",
+    "polars",
+    "numpy",
+    "pyarrow",
+    "openpyxl",
+
+    # Data access
+    "requests",
+    "yfinance",
+    "wrds",
+    "openassetpricing",
+    "tidyfinance",
+
+    # Statistics / econometrics
+    "scipy",
+    "statsmodels",
+    "linearmodels",
+    "pyfixest",
+    "scikit-learn",
+
+    # SQL
+    "duckdb",
+
+    # Visualization
+    "matplotlib",
+    "seaborn",
+    "plotly",
+
+    # Dashboards
+    "panel",
+
+    # AI / LLMs
+    "openai",
+    "ollama",
+
+    # Parallel computing / performance
+    "joblib",
+    "dask",
+    "numba",
+]
+
+# This folder is a working environment, not an installable package.
+[tool.uv]
+package = false
