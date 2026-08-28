@@ -2,7 +2,7 @@
 # ---------------------------------------------------------------
 #  USE Python - JupyterLab launcher for macOS
 #  Just double-click this file. No terminal required.
-#  The very first time: right-click -> Open (see INSTRUCTIONS.md)
+#  The very first time: right-click -> Open (see README.md)
 # ---------------------------------------------------------------
 
 # Always work in the folder this script lives in
