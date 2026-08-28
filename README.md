@@ -51,9 +51,20 @@ It then prepares the Python environment and starts JupyterLab.
 
 The first time you open the launcher, macOS may prevent it from running. In that case:
 
-1. Right-click `start-jupyterlab.command`.
+1. Right-click (or Control-click) `start-jupyterlab.command`.
 2. Choose **Open**.
-3. Confirm that you want to open it.
+3. In the confirmation window, click **Open**.
+
+If macOS instead says that it “cannot check `start-jupyterlab.command` for malicious software”, with the options **Done** and **Move to Bin**:
+
+1. If you downloaded this folder from the official course link, click **Done** — do not click **Move to Bin**.
+2. Open **System Settings**.
+3. Choose **Privacy & Security**.
+4. Scroll down to the **Security** section.
+5. Click **Open Anyway** next to the message about `start-jupyterlab.command`.
+6. In the confirmation window, click **Open**.
+
+You only need to do this once. Afterwards, double-click `start-jupyterlab.command` normally.
 
 The **first start** downloads Python and all required packages. This can take several minutes, so please be patient and do not close the Terminal window.
 
