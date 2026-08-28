@@ -14,6 +14,7 @@ dependencies = [
     "numpy",
     "pyarrow",
     "openpyxl",
+    "xlrd",  # opening excel legacy format
 
     # Data access
     "requests",
