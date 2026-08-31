@@ -11,9 +11,13 @@ dependencies = [
     # Data
     "pandas",
     "polars",
+    "polars-ds",  # data-science extensions for polars
+    "polars-ols",  # OLS regression for polars
     "numpy",
     "pyarrow",
     "openpyxl",
+    "xlrd",  # opening excel legacy format
+    "fastexcel",  # fast excel reading (polars backend)
 
     # Data access
     "requests",
