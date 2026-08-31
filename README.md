@@ -5,7 +5,7 @@ This folder contains the shared Python environment for both courses you take in 
 - **USEMFDA** — Financial Data Analytics
 - **USEMEE** — Empirical Economics
 
-The setup installs Python and all required packages automatically. After the one-time setup, you only need to double-click the launcher to start JupyterLab.
+The setup installs Python and all required packages automatically. After the one-time setup, you can start JupyterLab or open the course folder in Visual Studio Code.
 
 No existing Python installation is required.
 
@@ -78,7 +78,31 @@ To stop JupyterLab, return to the Terminal window and press:
 
 You can then close the window.
 
-## 3. Working folders
+## 3. Start Visual Studio Code (optional)
+
+Visual Studio Code (VS Code) is an alternative way to work with the course files.
+
+### Windows
+
+Double-click:
+
+`start-vscode.bat`
+
+If VS Code is already installed, it opens the `use-python` folder immediately. If it is not installed, the launcher asks whether you want to install it. Choose `Y` only if you want to download and run the official VS Code user installer. No administrator rights are normally required.
+
+### macOS
+
+Double-click:
+
+`start-vscode.command`
+
+If VS Code is already installed, it opens the `use-python` folder immediately. If it is not installed, the launcher asks whether you want to open the official VS Code download page. After installing VS Code and moving it to the Applications folder, run the launcher again.
+
+macOS may ask you to approve `start-vscode.command` the first time you run it. Follow the same right-click **Open** and **Open Anyway** guidance above.
+
+To work with Python notebooks in VS Code, install the Microsoft **Python** and **Jupyter** extensions from the Extensions panel.
+
+## 4. Working folders
 
 The folders for the two courses are located inside the `use-python` folder.
 
@@ -96,12 +120,14 @@ use-python/
 ├── README.md
 ├── pyproject.toml
 ├── start-jupyterlab.bat
-└── start-jupyterlab.command
+├── start-jupyterlab.command
+├── start-vscode.bat
+└── start-vscode.command
 ```
 
 This allows both courses to use the same Python installation and packages while keeping your course files separate.
 
-## 4. Python environment
+## 5. Python environment
 
 The environment is managed using `uv`.
 
@@ -119,7 +145,7 @@ The package configuration is stored in:
 
 Do not modify this file unless instructed to do so.
 
-## 5. Included packages
+## 6. Included packages
 
 The environment contains the packages required for both courses.
 
@@ -207,7 +233,7 @@ These packages provide Python interfaces for working with OpenAI models and loca
 
 JupyterLab is the main working environment used in the courses.
 
-## 6. Do not install packages inside notebooks
+## 7. Do not install packages inside notebooks
 
 Please do **not** install packages yourself from inside a Jupyter notebook.
 
@@ -227,7 +253,7 @@ The purpose of the shared environment is to make sure that everybody works with 
 
 If you need a package that is not available, ask the instructor to add it to the shared configuration.
 
-## 7. Starting JupyterLab later
+## 8. Starting applications later
 
 After the initial setup, starting your Python environment is simple.
 
@@ -245,7 +271,11 @@ Double-click:
 
 The environment does not need to be installed again. `uv` will check the environment and JupyterLab should normally start within a few seconds.
 
-## 8. If something goes wrong
+### Visual Studio Code
+
+Double-click `start-vscode.bat` on Windows or `start-vscode.command` on macOS. Once VS Code is installed, the launcher simply opens this folder in VS Code.
+
+## 9. If something goes wrong
 
 If the launcher reports an error:
 
