@@ -88,7 +88,7 @@ Double-click:
 
 `start-vscode.bat`
 
-If VS Code is already installed, it opens the `use-python` folder immediately. If it is not installed, the launcher asks whether you want to install it. Choose `Y` only if you want to download and run the official VS Code user installer. No administrator rights are normally required.
+The launcher first prepares the shared Python environment, then opens the `use-python` folder in VS Code. If VS Code is not installed, the launcher asks whether you want to install it. Choose `Y` only if you want to download and run the official VS Code user installer. No administrator rights are normally required.
 
 ### macOS
 
@@ -96,11 +96,11 @@ Double-click:
 
 `start-vscode.command`
 
-If VS Code is already installed, it opens the `use-python` folder immediately. If it is not installed, the launcher asks whether you want to open the official VS Code download page. After installing VS Code and moving it to the Applications folder, run the launcher again.
+The launcher first prepares the shared Python environment, then opens the `use-python` folder in VS Code. If VS Code is not installed, the launcher asks whether you want to open the official VS Code download page. After installing VS Code and moving it to the Applications folder, run the launcher again.
 
 macOS may ask you to approve `start-vscode.command` the first time you run it. Follow the same right-click **Open** and **Open Anyway** guidance above.
 
-To work with Python notebooks in VS Code, install the Microsoft **Python** and **Jupyter** extensions from the Extensions panel.
+VS Code will recommend the Microsoft **Python** and **Jupyter** extensions and use the shared `.venv` interpreter. If you have previously selected a different interpreter, use **Python: Select Interpreter** and select `.venv` once.
 
 ## 4. Working folders
 
@@ -182,6 +182,8 @@ These packages can be used to retrieve data from APIs and financial databases.
 - `linearmodels`
 - `pyfixest`
 - `scikit-learn`
+- `arch`
+- `PyPortfolioOpt`
 
 These packages provide statistical, econometric, and machine-learning methods.
 
@@ -196,6 +198,8 @@ DuckDB allows you to work with SQL directly from Python and can also query panda
 - `matplotlib`
 - `seaborn`
 - `plotly`
+- `plotnine`
+- `adjustText`
 
 These packages can be used to create static and interactive visualizations.
 
@@ -203,17 +207,9 @@ These packages can be used to create static and interactive visualizations.
 
 - `ipywidgets`
 - `panel`
+- `streamlit`
 
 These packages allow you to create interactive controls and dashboards from JupyterLab.
-
-### AI and large language models
-
-- `openai`
-- `ollama`
-
-These packages provide Python interfaces for working with OpenAI models and locally hosted models through Ollama.
-
-> **Note:** The Python package `ollama` is included, but running local models also requires the Ollama application and the relevant model to be installed separately.
 
 ### Parallel computing and performance
 

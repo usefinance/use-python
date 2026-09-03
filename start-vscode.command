@@ -13,7 +13,44 @@ echo "  USE Python - starting Visual Studio Code"
 echo "==============================================================="
 echo
 
-# --- Step 1: open an existing VS Code installation -------------
+# --- Step 1: locate uv -----------------------------------------
+if ! command -v uv >/dev/null 2>&1; then
+    for LOCATION in /opt/homebrew/bin /usr/local/bin "$HOME/.local/bin"; do
+        if [ -x "$LOCATION/uv" ]; then
+            export PATH="$LOCATION:$PATH"
+            break
+        fi
+    done
+fi
+
+# --- Step 2: install uv if necessary ---------------------------
+if ! command -v uv >/dev/null 2>&1; then
+    echo "uv was not found."
+    echo "Installing uv now ..."
+    echo
+
+    curl -LsSf https://astral.sh/uv/install.sh | sh
+    STATUS=$?
+    if [ $STATUS -ne 0 ]; then
+        echo
+        echo "[ERROR] uv could not be installed automatically."
+        exit $STATUS
+    fi
+    export PATH="$HOME/.local/bin:$PATH"
+fi
+
+# --- Step 3: prepare the workspace environment -----------------
+echo "Preparing the Python environment ..."
+uv run python -c 'import sys; print("Using " + sys.executable)'
+STATUS=$?
+if [ $STATUS -ne 0 ]; then
+    echo
+    echo "[ERROR] The Python environment could not be prepared."
+    exit $STATUS
+fi
+echo
+
+# --- Step 4: open an existing VS Code installation -------------
 if [ -d "/Applications/Visual Studio Code.app" ] || [ -d "$HOME/Applications/Visual Studio Code.app" ]; then
     echo "Opening this folder in Visual Studio Code ..."
     open -a "Visual Studio Code" "$PWD"
@@ -27,7 +64,7 @@ if command -v code >/dev/null 2>&1; then
     exit $?
 fi
 
-# --- Step 2: offer the official download page ------------------
+# --- Step 5: offer the official download page ------------------
 echo "Visual Studio Code was not found on this Mac."
 echo
 read -r -p "Open the official Visual Studio Code download page now? [y/N] " INSTALL_VSCODE

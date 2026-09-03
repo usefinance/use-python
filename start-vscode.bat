@@ -12,7 +12,35 @@ echo   USE Python - starting Visual Studio Code
 echo ===============================================================
 echo.
 
-REM --- Step 1: use the VS Code command if it is already on PATH --
+REM --- Step 1: locate uv ----------------------------------------
+where uv >nul 2>nul
+if errorlevel 1 (
+    if exist "%USERPROFILE%\.local\bin\uv.exe" (
+        set "PATH=%USERPROFILE%\.local\bin;%PATH%"
+    )
+)
+
+REM --- Step 2: install uv if necessary --------------------------
+where uv >nul 2>nul
+if errorlevel 1 (
+    echo uv was not found.
+    echo Installing uv now ...
+    echo.
+
+    powershell -NoProfile -ExecutionPolicy ByPass -Command ^
+        "irm https://astral.sh/uv/install.ps1 | iex"
+
+    if errorlevel 1 goto :launch_error
+    set "PATH=%USERPROFILE%\.local\bin;%PATH%"
+)
+
+REM --- Step 3: prepare the workspace environment ----------------
+echo Preparing the Python environment ...
+uv run python -c "import sys; print('Using ' + sys.executable)"
+if errorlevel 1 goto :launch_error
+echo.
+
+REM --- Step 4: use the VS Code command if it is already on PATH --
 where code >nul 2>nul
 if not errorlevel 1 (
     echo Opening this folder in Visual Studio Code ...
@@ -21,11 +49,11 @@ if not errorlevel 1 (
     exit /b 0
 )
 
-REM --- Step 2: look in the normal VS Code installation folders ---
+REM --- Step 5: look in the normal VS Code installation folders ---
 call :find_vscode
 if defined VSCODE_EXE goto :launch_vscode
 
-REM --- Step 3: offer the official user installer -----------------
+REM --- Step 6: offer the official user installer -----------------
 echo Visual Studio Code was not found on this computer.
 echo.
 set /p "INSTALL_VSCODE=Install Visual Studio Code now? [Y/N]: "

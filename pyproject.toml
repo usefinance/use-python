@@ -1,7 +1,7 @@
 [project]
 name = "use-python"
 version = "1.0.0"
-description = "Shared Python environment for Financial Data Analytics and Empirical Economics"
+description = "Shared Python environment for courses at Utrecht University School of Economics"
 requires-python = ">=3.12"
 dependencies = [
     # Environment
@@ -30,7 +30,6 @@ dependencies = [
     "beautifulsoup4",
     "html5lib",
     "lxml",
-    "playwright",
 
     # Statistics / econometrics
     "scipy",
@@ -56,15 +55,6 @@ dependencies = [
     # Dashboards
     "panel",
     "streamlit",
-
-    # NLP, transformers, and LLMs
-    "torch",
-    "transformers",
-    "datasets",
-    "sentence-transformers",
-    "accelerate",
-    "openai",
-    "ollama",
 
     # Parallel computing / performance
     "joblib",
