@@ -1,6 +1,6 @@
 [project]
 name = "use-python"
-version = "1.0.0"
+version = "1.0.4"
 description = "Shared Python environment for Financial Data Analytics and Empirical Economics"
 requires-python = ">=3.12"
 dependencies = [
@@ -26,12 +26,22 @@ dependencies = [
     "openassetpricing",
     "tidyfinance",
 
+    # Web scraping / HTML tables
+    "beautifulsoup4",
+    "html5lib",
+    "lxml",
+    "playwright",
+
     # Statistics / econometrics
     "scipy",
     "statsmodels",
     "linearmodels",
     "pyfixest",
     "scikit-learn",
+    "arch",
+
+    # Portfolio optimization
+    "PyPortfolioOpt",
 
     # SQL
     "duckdb",
@@ -40,11 +50,19 @@ dependencies = [
     "matplotlib",
     "seaborn",
     "plotly",
+    "plotnine",
+    "adjustText",
 
     # Dashboards
     "panel",
+    "streamlit",
 
-    # AI / LLMs
+    # NLP, transformers, and LLMs
+    "torch",
+    "transformers",
+    "datasets",
+    "sentence-transformers",
+    "accelerate",
     "openai",
     "ollama",
 
