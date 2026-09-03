@@ -1,6 +1,6 @@
 [project]
 name = "use-python"
-version = "1.0.4"
+version = "1.0.0"
 description = "Shared Python environment for Financial Data Analytics and Empirical Economics"
 requires-python = ">=3.12"
 dependencies = [

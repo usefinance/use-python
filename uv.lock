@@ -5203,7 +5203,7 @@ wheels = [
 
 [[package]]
 name = "use-python"
-version = "1.0.4"
+version = "1.0.0"
 source = { virtual = "." }
 dependencies = [
     { name = "accelerate" },
