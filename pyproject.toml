@@ -1,6 +1,6 @@
 [project]
 name = "use-python"
-version = "1.0.0"
+version = "1.0.8"
 description = "Shared Python environment for courses at Utrecht University School of Economics"
 # WRDS currently requires pandas 2.2.x, which has no Python 3.14 wheels.
 requires-python = ">=3.12,<3.14"
