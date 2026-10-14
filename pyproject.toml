@@ -2,7 +2,8 @@
 name = "use-python"
 version = "1.0.0"
 description = "Shared Python environment for courses at Utrecht University School of Economics"
-requires-python = ">=3.12"
+# WRDS currently requires pandas 2.2.x, which has no Python 3.14 wheels.
+requires-python = ">=3.12,<3.14"
 dependencies = [
     # Environment
     "jupyterlab",
@@ -22,9 +23,11 @@ dependencies = [
     # Data access
     "requests",
     "yfinance",
-    "wrds",
+    "wrds>=3.5.0",
     "openassetpricing",
     "tidyfinance",
+    "financetoolkit==2.1.4",
+    "financedatabase==2.4.0",
 
     # Web scraping / HTML tables
     "beautifulsoup4",
@@ -67,3 +70,7 @@ dependencies = [
 # This folder is a working environment, not an installable package.
 [tool.uv]
 package = false
+constraint-dependencies = [
+    # SCS 3.2.9+ does not publish Intel macOS wheels.
+    "scs<3.2.9; sys_platform == 'darwin' and platform_machine == 'x86_64'",
+]

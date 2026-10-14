@@ -133,17 +133,23 @@ The environment is managed using `uv`.
 
 You do **not** need to install Python yourself. The required Python version is downloaded automatically when the environment is created for the first time.
 
-The shared environment requires:
+The launchers use Python 3.12, selected by `.python-version`. The supported range is:
 
 ```text
-Python >= 3.12
+Python >= 3.12, < 3.14
 ```
+
+The package set targets 64-bit Windows (x86-64) and macOS 12 or later (Intel and Apple Silicon).
+
+WRDS 3.5.0 requires pandas 2.2.x, which does not provide prebuilt packages for Python 3.14. Using the selected Python version avoids trying to compile pandas on your computer.
 
 The package configuration is stored in:
 
 `pyproject.toml`
 
 Do not modify this file unless instructed to do so.
+
+`uv.lock` records the resolved package versions. Keep it together with `pyproject.toml` and `.python-version` when updating this folder.
 
 ## 6. Included packages
 
@@ -172,6 +178,8 @@ import numpy as np
 - `wrds`
 - `openassetpricing`
 - `tidyfinance`
+- `financedatabase` — discover financial instruments by country, sector, and industry
+- `financetoolkit` — calculate transparent financial ratios and other metrics
 
 These packages can be used to retrieve data from APIs and financial databases.
 
@@ -272,6 +280,12 @@ The environment does not need to be installed again. `uv` will check the environ
 Double-click `start-vscode.bat` on Windows or `start-vscode.command` on macOS. Once VS Code is installed, the launcher simply opens this folder in VS Code.
 
 ## 9. If something goes wrong
+
+### pandas fails to build
+
+If an older copy reports `Failed to build pandas==2.2.3` or cannot find `vswhere.exe`, update the environment files supplied by the instructor: `pyproject.toml`, `uv.lock`, and `.python-version` (the last file may be hidden). Close JupyterLab and VS Code first, replace those files in your existing course folder, and run the launcher again. It will select the supported Python version and recreate an incompatible `.venv` automatically. Your notebooks and data in the course folders are kept.
+
+You do not need to install Visual Studio build tools for this setup.
 
 If the launcher reports an error:
 
