@@ -23,6 +23,7 @@ dependencies = [
     # Data access
     "requests",
     "yfinance",
+    "fredapi",
     "wrds>=3.5.0",
     "openassetpricing",
     "tidyfinance",

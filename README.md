@@ -175,6 +175,7 @@ import numpy as np
 
 - `requests`
 - `yfinance`
+- `fredapi`
 - `wrds`
 - `openassetpricing`
 - `tidyfinance`
